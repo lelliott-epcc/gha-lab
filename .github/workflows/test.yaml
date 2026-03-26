@@ -14,13 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Checkout repo
-       uses: actions/checkout@v2
+       uses: actions/checkout@v4
 
      - name: Install dependencies
        run: |
          set -euxo pipefail
          python -m pip install --upgrade pip
          python -m pip install -r requirements.txt
+         python -m pip list
 
      - name: Verify pytest installation
        run: |
@@ -28,4 +29,4 @@ jobs:
 
      - name: Run pytest tests with pytest as module
        run: |
-          python -m pytest -v
+         python -m pytest -v
