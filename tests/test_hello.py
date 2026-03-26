@@ -4,6 +4,7 @@ from hello import hello
 TARGET = "Hello World!"
 
 def test_hello_prints(capsys: pytest.CaptureFixture[str]) -> None:
+    hello()
     captured = capsys.readouterr()
     assert captured.out == TARGET
 
