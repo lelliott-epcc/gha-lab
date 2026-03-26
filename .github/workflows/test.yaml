@@ -12,6 +12,9 @@ jobs:
 
   pytest:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
 
     steps:
 
@@ -43,3 +46,4 @@ jobs:
        if: success() || failure() # always run even if the previous step fails
        with:
           report_paths: pytest-report.xml
+          include_passed: true
