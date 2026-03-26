@@ -12,7 +12,9 @@ jobs:
 
   pytest:
     runs-on: ubuntu-latest
+
     steps:
+        
      - name: Checkout repo
        uses: actions/checkout@v4
 
@@ -35,3 +37,9 @@ jobs:
        with:
           name: pytest-report
           path: pytest-report.xml
+
+     - name: Publish test report
+       if: always()
+       uses: mikepenz/action-junit-report@v4
+       with:
+          report_paths: pytest-report.xml
